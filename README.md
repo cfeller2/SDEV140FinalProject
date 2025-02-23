@@ -27,8 +27,8 @@ def getWeather(city):
         city = json["name"]
         country = json["sys"]
         tempKelvin = json["main"]["temp"]
-        tempCelsius = tempKelvin-273.15
-        tempFahrenheit = (tempCelsius*9/5) + 32
+        tempCelsius = (tempKelvin-273.15)
+        tempFahrenheit = (tempCelsius * 9 / 5) + 32
         weather1 = json["weather"][0]["main"]
         final = [city, country, tempKelvin, tempCelsius, tempFahrenheit, weather1]
         return final
@@ -41,12 +41,13 @@ def search():
     weather = getWeather(city)
     if weather:
         locationLabel["text"] = "{} ,{}".format(weather[0], weather[1])
-        temperatureLabel["text"] = str(weather[3])+"  Degree Celsius"
-        weatherLabel["text"] = weather[4]
+        temperatureLabel["text"] = str(weather[3])+"  Degrees Celsius"
+        temperatureLabel2["text"] = str(weather[4])+" Degrees Fahrenheit"
+        weatherLabel["text"] = str(weather[5])
     else:
         messagebox.showerror("Error, Cannot find {}".format(city))
 
-# create object
+# create application
 app = Tk()
 
 # add title
@@ -59,13 +60,14 @@ app.geometry("250x350")
 cityText = StringVar()
 cityEntry = Entry(app, textvariable=cityText)
 cityEntry.pack()
-searchButton = Button(app, text="Search Weather",
-                      width=12, command=search)
+searchButton = Button(app, text = "Search Weather", width=12, command=search)
 searchButton.pack()
-locationLabel = Label(app, text="Location",
-                      font={"bold", 20})
+weatherButton = Button(app, text="Get Weather Conditions", width=12, command=search)
+weatherButton.pack()
+locationLabel = Label(app, text="Location", font={"bold", 20})
 locationLabel.pack()
 temperatureLabel = Label(app, text="")
+temperatureLabel2 = Label(app, text="")
 temperatureLabel.pack()
 weatherLabel = Label(app, text="")
 weatherLabel.pack()
