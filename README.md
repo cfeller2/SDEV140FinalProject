@@ -5,7 +5,7 @@ Assignment: Final Project
 Short Description: This program will open a GUI that will provide the weather when you input the city/country.
 """
 
-# import ruequired modules
+# import required modules
 from configparser import ConfigParser
 import requests
 from tkinter import *
