@@ -85,6 +85,8 @@ def openNewWindow():
     # button for new window
     searchButton2 = Button(newWindow, text="Search", width=12, command=searchNewWindow)
     searchButton2.pack()
+    exitButton2 = Button (newWindow, text="Exit", width=12, command=app.destroy)
+    exitButton2.pack()
 
 # Create main app window
 app = Tk()
@@ -110,6 +112,8 @@ temperatureLabel2 = Label(app, text="Temperature (°F): ", font=("Arial", 12)) #
 temperatureLabel2.pack()
 weatherLabel = Label(app, text="Weather: ", font=("Arial", 12)) # creates label to show weather (ex. sunny or clouds)
 weatherLabel.pack()
+exitButton = Button (app, text="Exit", width=12, command=app.destroy)
+exitButton.pack()
 
 # run application
 app.mainloop()
