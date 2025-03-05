@@ -1,8 +1,8 @@
 """
 Author: Colten Feller
 Date Written: January 30, 2025
-Assignment:
-Short Desc:
+Assignment: SDEV 140 M08 Final Project
+Short Desc: This is a GUI application that allows you to search the weather of mulitple cities
 """
 
 # import ruequired modules
